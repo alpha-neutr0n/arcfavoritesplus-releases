@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arc Favorites+ — Privacy Policy</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #0f1115; --card: #171a21; --border: #262b35;
+    --text: #e8e9ec; --muted: #9aa1ad; --accent: #4d8fff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 56px 24px 96px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  .updated { color: var(--muted); font-size: .85rem; margin: 0 0 36px; }
+  h2 { font-size: 1.05rem; margin: 36px 0 10px; }
+  p, li { color: var(--text); font-size: .95rem; }
+  ul { padding-left: 20px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 20px; margin: 16px 0;
+  }
+  a { color: var(--accent); }
+  @media (prefers-color-scheme: light) {
+    :root { --bg: #f7f8fa; --card: #ffffff; --border: #e3e6eb; --text: #1a1d23; --muted: #6b7280; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Arc Favorites+ Privacy Policy</h1>
+  <p class="updated">Last updated: September 2026</p>
+
+  <p>
+    Arc Favorites+ is a browser extension and companion menu bar app
+    that lets you save more than Arc's built-in 12-favorite limit.
+    This page explains exactly what data it touches and where it goes.
+  </p>
+
+  <div class="card">
+    <strong>The short version:</strong> the only data this extension
+    handles is the URL and title of a page you deliberately right-click
+    to save. That data goes to one place — a small server the
+    companion app runs on your own Mac (127.0.0.1) — and never
+    leaves your computer. Nothing is sent to us, to any analytics
+    service, or to any third party.
+  </div>
+
+  <h2>What data is collected</h2>
+  <ul>
+    <li><strong>Page URL and title</strong> — only for pages you explicitly right-click and choose "Add to Arc Favorites+." Nothing is captured automatically or in the background.</li>
+    <li><strong>A pairing token</strong> — a random identifier you copy from the companion app and paste into the extension's settings, used only to authenticate the extension to your own local app instance.</li>
+  </ul>
+  <p>The extension does not collect browsing history, keystrokes, form data, passwords, or any content from pages you haven't explicitly saved.</p>
+
+  <h2>Where the data goes</h2>
+  <p>
+    Saved URLs, titles, and the pairing token are sent only to
+    <code>http://127.0.0.1:8765</code> — a local server that the
+    Arc Favorites+ menu bar app runs on your own machine. This
+    address is only reachable from your own computer; it is not a
+    remote server, and no data crosses the network to anywhere else.
+  </p>
+  <p>
+    The saved favorites themselves are stored in a local file on your
+    Mac (inside your user Library folder) by the companion app. We —
+    the developer — never receive, see, or have access to this data
+    in any form.
+  </p>
+
+  <h2>What the extension's permissions are for</h2>
+  <ul>
+    <li><strong>contextMenus</strong> — adds the "Add to Arc Favorites+" right-click menu item.</li>
+    <li><strong>activeTab</strong> — reads the URL/title of the current tab only when you invoke the menu item, never in the background.</li>
+    <li><strong>storage</strong> — stores your pairing token and a small retry queue locally in the browser, using Chrome's own extension storage.</li>
+    <li><strong>alarms</strong> — periodically retries sending a saved favorite to the local app if it wasn't running at the time (e.g. you saved a page before opening the app).</li>
+    <li><strong>notifications</strong> — shows a native notification confirming a favorite was saved, or explaining why it wasn't (e.g. pairing needed, free-tier limit reached).</li>
+    <li><strong>host_permissions (http://127.0.0.1/*)</strong> — the only network destination this extension ever talks to: the companion app running on your own machine.</li>
+  </ul>
+
+  <h2>Data sharing and sale</h2>
+  <p>
+    We do not sell, rent, or share any data with third parties,
+    advertisers, or data brokers. There is no analytics or tracking
+    of any kind in this extension.
+  </p>
+
+  <h2>Data retention and deletion</h2>
+  <p>
+    Saved favorites and the pairing token live entirely on your own
+    device. Uninstalling the extension removes its local Chrome
+    storage; uninstalling the companion app (or running
+    <code>brew uninstall --cask arcfavoritesplus --zap</code>) removes
+    the favorites file and pairing token from your Mac.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions about this policy or the extension's data handling:
+    <a href="https://github.com/alpha-neutr0n/arcfavoritesplus-releases/issues">open an issue on GitHub</a>.
+  </p>
+</div>
+</body>
+</html>
